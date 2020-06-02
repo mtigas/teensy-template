@@ -39,6 +39,8 @@ BUILDDIR = "$(abspath $(CURDIR)/build)"
 # unset to skip using ccache
 CCACHE = /Users/mtigas/homebrew/bin/ccache
 
+TEENSY_LOADER_CLI = /Users/mtigas/homebrew/bin/teensy_loader_cli
+
 #************************************************************************
 # Location of Teensyduino utilities, Toolchain, and Arduino Libraries.
 # To use this makefile without Arduino, copy the resources from these
@@ -166,7 +168,7 @@ hex: $(TARGET).hex
 # 
 # upload: post_compile reboot
 upload: $(TARGET).hex
-	/Users/mtigas/homebrew/bin/teensy_loader_cli $(TARGET).hex -v -w --mcu=$(MCU)
+	$(TEENSY_LOADER_CLI) $(TARGET).hex -v -w --mcu=$(MCU)
 
 $(BUILDDIR)/%.o: %.c
 	@echo -e "[CC]\t$<"
