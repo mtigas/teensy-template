@@ -2,3 +2,8 @@
 *.d
 *.hex
 *.elf
+build/**
+!build/.gitkeep
+libraries/**
+!libraries/.gitkeep
+.DS_Store
